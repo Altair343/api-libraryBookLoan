@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  api-library-book-db:
+    image: postgres:17
+    container_name: api-library-book-db
+    command: postgres -c 'max_connections=1000'
+    env_file: ./api-libraryBook/configs/.env-db
+    # environment:
+    #   POSTGRES_DB: library_book
+    #   POSTGRES_USER: payrolluser
+    #   POSTGRES_PASSWORD: payrolluser
+    #   TZ: America/Mexico_City
+    restart: unless-stopped
+    ports:
+      - "5437:5432"
+    networks:
+      - library_network
+    volumes:
+      - postgres_data_library:/var/lib/postgresql/data
+
+  # api-library-book-db:
+  #   container_name: api-library-book-db
+  #   image: mysql:8.2.0
+  #   restart: always
+  #   environment:
+  #     MYSQL_DATABASE: 'library_book'
+  #     MYSQL_ROOT_PASSWORD: 'XXXX'
+  #   ports:
+  #     - 3312:3306
+  #   networks:
+  #     - library_network
+  #   volumes:
+  #     - mysql_data:/var/lib/mysql
+
+networks:
+  library_network:
+    driver: bridge
+
+volumes:
+  postgres_data_library:
+  # mysql_data:
+
+
