@@ -5,6 +5,9 @@ server:
     min-response-size: 2048
     mime-types: application/json,application/xml,text/html,text/plain
 
+  servlet:
+    context-path: /api
+
 spring:
   application:
     name: api-libraryBook
