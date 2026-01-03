@@ -14,13 +14,13 @@ import java.util.List;
 @Builder
 @ToString
 public class ReservationDTO {
-
+    Long version;
     private Long id;
     private String folio;
     private LocalDate startDate;
     private LocalDate endDate;
     private String description;
-    
+
     private CustomerDTO customerId;
     private List<BookDTO> bookList;
 

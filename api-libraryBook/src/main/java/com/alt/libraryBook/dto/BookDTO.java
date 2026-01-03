@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Builder
 @ToString
 public class BookDTO {
-
+    Long version;
     private Long id;
     private String title;
     private String author;

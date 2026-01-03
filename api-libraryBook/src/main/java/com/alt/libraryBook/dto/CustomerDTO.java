@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Builder
 @ToString
 public class CustomerDTO {
-
+    Long version;
     private Long id;
     private String customerName;
     private String customerCode;
