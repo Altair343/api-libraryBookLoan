@@ -1,3 +1,11 @@
+management:
+  info:
+    env:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+
 server:
   port: 8080
   compression:
@@ -8,6 +16,12 @@ server:
   servlet:
     context-path: /api
 
+info:
+  application:
+    groupId: '@project.groupId@'
+    artifactId: '@project.artifactId@'
+    version: '@project.version@'
+
 spring:
   application:
     name: api-libraryBook
@@ -16,6 +30,11 @@ spring:
     url: ${DB_URL}
     username: ${DB_USER}
     password: ${DB_PASSWORD}
+
+#  jpa:
+#    hibernate:
+#      ddl-auto: validate
+#    show-sql: true
 
   flyway:
     enabled: TRUE

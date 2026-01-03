@@ -2,6 +2,7 @@ package com.alt.libraryBook.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,7 +25,9 @@ public class Reservation extends Base {
     private Customer customerId;
 
     @Valid
+    @NotEmpty(message = "You need at least one passenger")
     @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reservation_id")
     private List<Book> bookList;
 
     @Column(name = "created_at", nullable = false)
@@ -33,16 +36,16 @@ public class Reservation extends Base {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    public Customer getCustomerId() {
-        return customerId;
-    }
-
-    public List<Book> getBookList() {
+        public List<Book> getBookList() {
         return bookList;
     }
 
     public void setBookList(List<Book> bookList) {
         this.bookList = bookList;
+    }
+
+    public Customer getCustomerId() {
+        return customerId;
     }
 
     public void setCustomerId(Customer customerId) {

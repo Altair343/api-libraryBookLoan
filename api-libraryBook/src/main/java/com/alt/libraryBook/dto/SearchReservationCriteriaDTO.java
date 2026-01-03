@@ -4,7 +4,7 @@ import java.time.LocalDate;
 public class SearchReservationCriteriaDTO {
     private Long customerCode;
     private String customerName;
-    private LocalDate folio;
+    private String folio;
 
     private String sortField;
     private String sortingDirection;
@@ -28,11 +28,11 @@ public class SearchReservationCriteriaDTO {
         this.customerName = customerName;
     }
 
-    public LocalDate getFolio() {
+    public String getFolio() {
         return folio;
     }
 
-    public void setFolio(LocalDate folio) {
+    public void setFolio(String folio) {
         this.folio = folio;
     }
 
