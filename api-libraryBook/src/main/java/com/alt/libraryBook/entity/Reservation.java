@@ -13,10 +13,15 @@ public class Reservation extends Base {
 
     @Valid
     private String folio;
+
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
+
+    @Transient
     @Column(name = "end_date", nullable = false)
+    @NotEmpty(message = "You need at end ate")
     private LocalDate endDate;
+
     private String description;
 
     @Valid
@@ -24,8 +29,6 @@ public class Reservation extends Base {
     @JoinColumn(name = "customer_id")
     private Customer customerId;
 
-    @Valid
-    @NotEmpty(message = "You need at least one passenger")
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "reservation_id")
     private List<Book> bookList;
@@ -36,7 +39,7 @@ public class Reservation extends Base {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-        public List<Book> getBookList() {
+    public List<Book> getBookList() {
         return bookList;
     }
 

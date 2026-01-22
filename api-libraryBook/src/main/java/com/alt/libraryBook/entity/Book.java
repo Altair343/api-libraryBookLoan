@@ -20,6 +20,9 @@ public class Book extends Base {
     private String year;
     private String editorial;
 
+    @Column(name = "reservation_id")
+    private Long reservationId;
+
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
@@ -104,6 +107,14 @@ public class Book extends Base {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Long getReservationId() {
+        return reservationId;
+    }
+
+    public void setReservationId(Long reservationId) {
+        this.reservationId = reservationId;
     }
 
     @Override
